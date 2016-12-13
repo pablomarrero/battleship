@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'game/:player' =>  'game#play'
+  get 'game/:player' =>  'game#play', as: :play_path
+  post 'game/:player' => 'game#start', as: :play_start_path
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
