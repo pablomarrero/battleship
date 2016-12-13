@@ -11,9 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20161213201652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "games", force: :cascade do |t|
+    t.string   "player1"
+    t.string   "player2"
+    t.hstore   "player1_ships_position", default: {}, null: false
+    t.hstore   "player2_ships_position", default: {}, null: false
+    t.json     "player1_hit_shot",       default: {}, null: false
+    t.json     "player2_hit_shot",       default: {}, null: false
+    t.json     "player1_miss_shot",      default: {}, null: false
+    t.json     "player2_miss_shot",      default: {}, null: false
+    t.string   "winner"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
 
 end
