@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 20161213230132) do
   create_table "games", force: :cascade do |t|
     t.string   "player1"
     t.string   "player2"
-    t.hstore   "player1_ships_position", default: {},   null: false
-    t.hstore   "player2_ships_position", default: {},   null: false
     t.json     "player1_hit_shot",       default: {},   null: false
     t.json     "player2_hit_shot",       default: {},   null: false
     t.json     "player1_miss_shot",      default: {},   null: false
@@ -30,6 +28,8 @@ ActiveRecord::Schema.define(version: 20161213230132) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.boolean  "active",                 default: true
+    t.hstore   "player2_ships_position", default: {},   null: false
+    t.hstore   "player1_ships_position", default: {},   null: false
   end
 
 end

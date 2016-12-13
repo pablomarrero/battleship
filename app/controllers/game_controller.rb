@@ -1,6 +1,7 @@
 class GameController < ApplicationController
   before_action :set_basics, only: [:play, :start]
   def play
+	  deconstruct_game_object
   end
 
   def start
@@ -38,7 +39,8 @@ class GameController < ApplicationController
   end
 
   def deconstruct_game_object
-    
+    @player1_ships_position = JSON.parse @game.player1_ships_position.to_json
+    @player2_ships_position = JSON.parse @game.player2_ships_position.to_json
   end
 
   def set_game_params

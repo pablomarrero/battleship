@@ -37,5 +37,17 @@
 	</form>
       <% end %>
     <% end %>
+    <% unless @game.id.nil? || @game.send("player#{@player}").nil?%>
+      <h3> Ships Positions </h3>
+      <div class="row">
+        <ul class="list-group">
+          <li class="list-group-item"<stron>Carrier:</strong> <%= @player.to_i == 1 ? @player1_ships_position['carrier'] : @player2_ships_position['carrier']%></li>
+          <li class="list-group-item"<stron>Battleship:</strong> <%=  @player.to_i == 1 ? @player1_ships_position['battleship'] : @player2_ships_position['battleship']%></li>
+          <li class="list-group-item"<stron>Cruiser:</strong> <%=  @player.to_i == 1 ? @player1_ships_position['cruiser'] : @player2_ships_position['cruiser'] %></li>
+          <li class="list-group-item"<stron>Submarine:</strong> <%=  @player.to_i == 1 ? @player1_ships_position['submarine'] : @player2_ships_position['submarine']%></li>
+          <li class="list-group-item"<stron>Destroyer:</strong> <%=  @player.to_i == 1 ? @player1_ships_position['destroyer'] : @player2_ships_position['destroyer']%></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
